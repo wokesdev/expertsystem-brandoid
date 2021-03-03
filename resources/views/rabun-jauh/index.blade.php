@@ -36,6 +36,7 @@
                                 Namun, tetap saja sebaiknya Anda menjaga pola hidup Anda serta periksakan mata Anda secara rutin.
                             </div>
                         @endif
+
                         <form action="{{ route('check.store') }}" method="post" id="cek-rabun-jauh">
                             @csrf
                             <div class="form-group" id="pertanyaan1">

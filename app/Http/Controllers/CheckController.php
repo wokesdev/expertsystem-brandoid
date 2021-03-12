@@ -11,9 +11,19 @@ class CheckController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        if ($request->penyakit === 'rabun_jauh') {
+            return redirect('cek-rabun-jauh');
+        }
+
+        if ($request->penyakit === 'rabun_dekat') {
+            return redirect('cek-rabun-dekat');
+        }
+
+        if ($request->penyakit === 'rabun_senja') {
+            return redirect('cek-rabun-senja');
+        }
     }
 
     /**
@@ -99,5 +109,39 @@ class CheckController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function CekRabunJauh(Request $request)
+    {
+        $chance = 0;
+
+        $request->keturunan == 1 ? $chance += 2 : $chance += 0;
+        $request->membaca == 1 ? $chance += 1 : $chance += 0;
+        $request->menatap == 1 ? $chance += 1 : $chance += 0;
+        $request->kedip == 1 ? $chance += 1 : $chance += 0;
+        $request->gosok == 1 ? $chance += 1 : $chance += 0;
+        $request->lelah == 1 ? $chance += 1 : $chance += 0;
+        $request->sakit == 1 ? $chance += 1 : $chance += 0;
+        $request->kabur == 1 ? $chance += 3 : $chance += 0;
+
+        if ($chance > 5) {
+            $status = 'Kena';
+        } else if ($chance < 3) {
+            $status = 'Tidak';
+        } else {
+            $status = 'Mungkin';
+        }
+
+        return redirect('cek-rabun-jauh')->with('status', $status);
+    }
+
+    public function CekRabunDekat(Request $request)
+    {
+        # code...
+    }
+
+    public function CekRabunSenja(Request $request)
+    {
+        # code...
     }
 }

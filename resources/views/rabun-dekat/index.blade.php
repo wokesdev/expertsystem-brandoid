@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cek Rabun Jauh</title>
+    <title>Cek Rabun Dekat</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 </head>
@@ -14,9 +14,9 @@
             <div class="col-sm-12 my-5">
                 <div class="card">
                     <div class="card-header">
-                        Cek Rabun Jauh
+                        Cek Rabun Dekat
                     </div>
-                    <div class="card-body">
+                    {{-- <div class="card-body">
                         @if (session('status') === 'Mungkin')
                             <div class="alert alert-warning">
                                 <b>Anda mungkin masih belum terkena rabun jauh.</b>
@@ -37,7 +37,7 @@
                             </div>
                         @endif
 
-                        <form action="{{ route('check.rabun-jauh') }}" method="post" id="cek-rabun-jauh">
+                        <form action="{{ route('check.rabun-dekat') }}" method="post" id="cek-rabun-dekat">
                             @csrf
                             <div class="form-group" id="pertanyaan1">
                                 <label for="keturunan">Apakah ayah atau ibu Anda menderita rabun jauh?</label>
@@ -145,8 +145,8 @@
                         </form>
                     </div>
                     <div class="card-footer">
-                        <button class="btn btn-primary" form="cek-rabun-jauh">Cek Sekarang</button>
-                    </div>
+                        <button class="btn btn-primary" form="cek-rabun-dekat">Cek Sekarang</button>
+                    </div> --}}
                 </div>
             </div>
         </div>

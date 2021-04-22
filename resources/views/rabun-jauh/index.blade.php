@@ -39,7 +39,85 @@
 
                         <form action="{{ route('check.rabun-jauh') }}" method="post" id="cek-rabun-jauh">
                             @csrf
-                            <div class="form-group" id="pertanyaan1">
+                            <div class="form-group">
+                                <label for="kepala">Apakah Anda tiba-tiba merasa kepala Anda menjadi lebih sakit ketika mata bekerja berlebihan?</label>
+                                <div></div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="kepala" id="kepala1" value="1" required>
+                                    <label class="form-check-label" for="kepala1">Iya</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="kepala" id="kepala2" value="0">
+                                    <label class="form-check-label" for="kepala2">Tidak</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="lelah">Apakah Anda tiba-tiba merasa mata Anda menjadi lebih lelah ketika mata bekerja berlebihan?</label>
+                                <div></div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="lelah" id="lelah1" value="1" required>
+                                    <label class="form-check-label" for="lelah1">Iya</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="lelah" id="lelah2" value="0">
+                                    <label class="form-check-label" for="lelah2">Tidak</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="kedip">Apakah Anda tiba-tiba merasa menjadi lebih sering mengedipkan mata?</label>
+                                <div></div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="kedip" id="kedip1" value="1" required>
+                                    <label class="form-check-label" for="kedip1">Iya</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="kedip" id="kedip2" value="0">
+                                    <label class="form-check-label" for="kedip2">Tidak</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="micing">Apakah Anda tiba-tiba merasa menjadi lebih sering memicingkan mata saat melihat objek jauh?</label>
+                                <div></div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="micing" id="micing1" value="1" required>
+                                    <label class="form-check-label" for="micing1">Iya</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="micing" id="micing2" value="0">
+                                    <label class="form-check-label" for="micing2">Tidak</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="gosok">Apakah Anda tiba-tiba merasa menjadi lebih sering menggosok-gosok mata?</label>
+                                <div></div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="gosok" id="gosok1" value="1" required>
+                                    <label class="form-check-label" for="gosok1">Iya</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="gosok" id="gosok2" value="0">
+                                    <label class="form-check-label" for="gosok2">Tidak</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="kabur">Apakah Anda tiba-tiba merasa pandangan Anda menjadi kabur ketika melihat objek jauh?</label>
+                                <div></div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="kabur" id="kabur1" value="1" required>
+                                    <label class="form-check-label" for="kabur1">Iya</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="kabur" id="kabur2" value="0">
+                                    <label class="form-check-label" for="kabur2">Tidak</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
                                 <label for="keturunan">Apakah ayah atau ibu Anda menderita rabun jauh?</label>
                                 <div></div>
                                 <div class="form-check form-check-inline">
@@ -49,6 +127,32 @@
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="keturunan" id="keturunan2" value="0">
                                     <label class="form-check-label" for="keturunan2">Tidak</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="matahari">Apakah Anda jarang terkena sinar matahari?</label>
+                                <div></div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="matahari" id="matahari1" value="1" required>
+                                    <label class="form-check-label" for="matahari1">Iya</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="matahari" id="matahari2" value="0">
+                                    <label class="form-check-label" for="matahari2">Tidak</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group" id="pertanyaan3">
+                                <label for="vitamind">Apakah Anda kekurangan vitamin D?</label>
+                                <div></div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="vitamind" id="vitamind1" value="1" required>
+                                    <label class="form-check-label" for="vitamind1">Iya</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="vitamind" id="vitamind2" value="0">
+                                    <label class="form-check-label" for="vitamind2">Tidak</label>
                                 </div>
                             </div>
 
@@ -64,88 +168,11 @@
                                     <label class="form-check-label" for="membaca2">Tidak</label>
                                 </div>
                             </div>
-
-                            <div class="form-group" id="pertanyaan3">
-                                <label for="menatap">Apakah Anda sering menatap gadget / komputer terlalu dekat?</label>
-                                <div></div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="menatap" id="menatap1" value="1" required>
-                                    <label class="form-check-label" for="menatap1">Iya</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="menatap" id="menatap2" value="0">
-                                    <label class="form-check-label" for="menatap2">Tidak</label>
-                                </div>
-                            </div>
-
-                            <div class="form-group" id="pertanyaan4">
-                                <label for="kedip">Apakah Anda tiba-tiba merasa menjadi lebih sering mengedipkan mata?</label>
-                                <div></div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="kedip" id="kedip1" value="1" required>
-                                    <label class="form-check-label" for="kedip1">Iya</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="kedip" id="kedip2" value="0">
-                                    <label class="form-check-label" for="kedip2">Tidak</label>
-                                </div>
-                            </div>
-
-                            <div class="form-group" id="pertanyaan5">
-                                <label for="gosok">Apakah Anda tiba-tiba merasa menjadi lebih sering menggosok-gosok mata?</label>
-                                <div></div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="gosok" id="gosok1" value="1" required>
-                                    <label class="form-check-label" for="gosok1">Iya</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="gosok" id="gosok2" value="0">
-                                    <label class="form-check-label" for="gosok2">Tidak</label>
-                                </div>
-                            </div>
-
-                            <div class="form-group" id="pertanyaan7">
-                                <label for="lelah">Apakah Anda tiba-tiba merasa mata Anda menjadi lebih lelah ketika mata bekerja berlebihan?</label>
-                                <div></div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="lelah" id="lelah1" value="1" required>
-                                    <label class="form-check-label" for="lelah1">Iya</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="lelah" id="lelah2" value="0">
-                                    <label class="form-check-label" for="lelah2">Tidak</label>
-                                </div>
-                            </div>
-
-                            <div class="form-group" id="pertanyaan8">
-                                <label for="sakit">Apakah Anda tiba-tiba merasa kepala Anda menjadi lebih sakit ketika mata bekerja berlebihan?</label>
-                                <div></div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="sakit" id="sakit1" value="1" required>
-                                    <label class="form-check-label" for="sakit1">Iya</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="sakit" id="sakit2" value="0">
-                                    <label class="form-check-label" for="sakit2">Tidak</label>
-                                </div>
-                            </div>
-
-                            <div class="form-group" id="pertanyaan6">
-                                <label for="kabur">Apakah Anda tiba-tiba merasa pandangan Anda menjadi kabur ketika melihat objek jauh?</label>
-                                <div></div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="kabur" id="kabur1" value="1" required>
-                                    <label class="form-check-label" for="kabur1">Iya</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="kabur" id="kabur2" value="0">
-                                    <label class="form-check-label" for="kabur2">Tidak</label>
-                                </div>
-                            </div>
                         </form>
                     </div>
                     <div class="card-footer">
                         <button class="btn btn-primary" form="cek-rabun-jauh">Cek Sekarang</button>
+                        <a class="btn btn-secondary" href="{{ config('app.url') }}">Kembali</a>
                     </div>
                 </div>
             </div>

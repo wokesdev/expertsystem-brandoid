@@ -6,11 +6,6 @@ use Illuminate\Http\Request;
 
 class CheckController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index(Request $request)
     {
         if ($request->penyakit === 'rabun_jauh') {
@@ -26,110 +21,36 @@ class CheckController extends Controller
         }
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        $chance = 0;
-
-        $request->keturunan == 1 ? $chance += 2 : $chance += 0;
-        $request->membaca == 1 ? $chance += 1 : $chance += 0;
-        $request->menatap == 1 ? $chance += 1 : $chance += 0;
-        $request->kedip == 1 ? $chance += 1 : $chance += 0;
-        $request->gosok == 1 ? $chance += 1 : $chance += 0;
-        $request->lelah == 1 ? $chance += 1 : $chance += 0;
-        $request->sakit == 1 ? $chance += 1 : $chance += 0;
-        $request->kabur == 1 ? $chance += 3 : $chance += 0;
-
-        if ($chance > 5) {
-            $status = 'Kena';
-        } else if ($chance < 3) {
-            $status = 'Tidak';
-        } else {
-            $status = 'Mungkin';
-        }
-
-        return redirect('cek-rabun-jauh')->with('status', $status);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
-
     public function CekRabunJauh(Request $request)
     {
-        $chance = 0;
+        $request->kepala == 1 ? $g1 = true : $g1 = false;
+        $request->lelah == 1 ? $g2 = true : $g2 = false;
+        $request->kedip == 1 ? $g3 = true : $g3 = false;
+        $request->micing == 1 ? $g4 = true :$g4 = false;
+        $request->gosok == 1 ? $g5 = true : $g5 = false;
+        $request->kabur == 1 ? $g6 = true : $g6 = false;
 
-        $request->keturunan == 1 ? $chance += 2 : $chance += 0;
-        $request->membaca == 1 ? $chance += 1 : $chance += 0;
-        $request->menatap == 1 ? $chance += 1 : $chance += 0;
-        $request->kedip == 1 ? $chance += 1 : $chance += 0;
-        $request->gosok == 1 ? $chance += 1 : $chance += 0;
-        $request->lelah == 1 ? $chance += 1 : $chance += 0;
-        $request->sakit == 1 ? $chance += 1 : $chance += 0;
-        $request->kabur == 1 ? $chance += 3 : $chance += 0;
+        $request->keturunan == 1 ? $p1 = true : $p1 = false;
+        $request->matahari == 1 ? $p2 = true : $p2 = false;
+        $request->vitamind == 1 ? $p3 = true : $p3 = false;
+        $request->membaca == 1 ? $p4 = true : $p4 = false;
 
-        if ($chance > 5) {
+        if ($g1 && $g2 && $g3 && $g4 && $g5 && $g6) {
             $status = 'Kena';
-        } else if ($chance < 3) {
-            $status = 'Tidak';
-        } else {
+        } else if ($g1 && $g2 && $g3 && $g4) {
+            $status = 'Kena';
+        } else if ($p1 && $p2 && $p3 && $p4) {
+            $status = 'Kena';
+        } else if ($g1 && $g2 && $g3 && $g4 && $p1 && $p2 && $p3) {
             $status = 'Mungkin';
+        } else if ($g5 && $g6 && $p3 && $p4) {
+            $status = 'Mungkin';
+        } else if ($g2 && $g3 && $p4) {
+            $status = 'Mungkin';
+        } else if ($g6) {
+            $status = 'Mungkin';
+        } else {
+            $status = 'Tidak';
         }
 
         return redirect('cek-rabun-jauh')->with('status', $status);
@@ -137,11 +58,64 @@ class CheckController extends Controller
 
     public function CekRabunDekat(Request $request)
     {
-        # code...
+        $request->sulit == 1 ? $g1 = true : $g1 = false;
+        $request->sipit == 1 ? $g2 = true : $g2 = false;
+        $request->tegang == 1 ? $g3 = true : $g3 = false;
+        $request->lelah == 1 ? $g4 = true :$g4 = false;
+
+        $request->keturunan == 1 ? $p1 = true : $p1 = false;
+        $request->usia == 1 ? $p2 = true : $p2 = false;
+        $request->penyakit == 1 ? $p3 = true : $p3 = false;
+
+        if ($g1 && $g2 && $g3 && $g4) {
+            $status = 'Kena';
+        } else if ($g1 && $g2 && $g3) {
+            $status = 'Kena';
+        } else if ($p1 && $p2 && $p3) {
+            $status = 'Kena';
+        } else if ($g1 && $g2 && $p1 && $p2) {
+            $status = 'Mungkin';
+        } else if ($g1 && $g2 && $g3 && $p1) {
+            $status = 'Mungkin';
+        } else if ($g1 && $p2) {
+            $status = 'Mungkin';
+        } else if ($g1 && $p2) {
+            $status = 'Mungkin';
+        } else {
+            $status = 'Tidak';
+        }
+
+        return redirect('cek-rabun-dekat')->with('status', $status);
     }
 
     public function CekRabunSenja(Request $request)
     {
-        # code...
+        $request->sulit == 1 ? $g1 = true : $g1 = false;
+        $request->berpindah == 1 ? $g2 = true : $g2 = false;
+
+        $request->vitamina == 1 ? $p1 = true : $p1 = false;
+        $request->rabunjauh == 1 ? $p2 = true : $p2 = false;
+        $request->katarak == 1 ? $p3 = true : $p3 = false;
+        $request->retinitis == 1 ? $p4 = true : $p4 = false;
+        $request->glaukoma == 1 ? $p5 = true : $p5 = false;
+        $request->keratokonus == 1 ? $p6 = true : $p6 = false;
+
+        if ($g1 || $g2) {
+            $status = 'Kena';
+        } else if ($g1 && $g2 && $p1 && $p2) {
+            $status = 'Kena';
+        } else if ($g1 && $g2 && $p3) {
+            $status = 'Kena';
+        } else if ($g1 && $g2 && $p4) {
+            $status = 'Kena';
+        } else if ($g1 && $g2 && $p5) {
+            $status = 'Kena';
+        } else if ($p1 || $p2 || $p3 || $p4 || $p5 || $p6) {
+            $status = 'Mungkin';
+        } else {
+            $status = 'Tidak';
+        }
+
+        return redirect('cek-rabun-senja')->with('status', $status);
     }
 }
